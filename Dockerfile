@@ -11,7 +11,7 @@ RUN apt-get update && \
     build-essential autoconf automake libtool libpcap-dev libnet1-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libcap-ng-dev libcap-ng0 \
     make libmagic-dev libjansson-dev libjansson4 pkg-config \
-    python-yaml liblua5.1-0-dev
+    python-yaml liblua5.1-0-dev libnss3-dev
 
 RUN ./configure --enable-rust --enable-lua --prefix=/target
 RUN make -j16
@@ -20,6 +20,6 @@ RUN make install-full
 FROM debian:stretch
 COPY --from=builder /target /usr/local
 RUN apt-get update && \
-    apt-get install -y libmagic1 libpcap0.8 libnet1	libjansson4	libyaml-0-2	liblua5.1-0 && \
+    apt-get install -y libmagic1 libpcap0.8 libnet1	libjansson4	libyaml-0-2	liblua5.1-0 libnss3 && \
     rm -rf /var/lib/apt/lists/*
 RUN suricata -V
