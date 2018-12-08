@@ -20,6 +20,6 @@ RUN make install-full
 FROM debian:stretch
 COPY --from=builder /target /usr/local
 RUN apt-get update && \
-    apt-get install -y libmagic1 libpcap0.8 libnet1	libjansson4	libyaml-0-2	liblua5.1-0 libnss3 && \
+    apt-get install -y libmagic1 libpcap0.8 libnet1 libjansson4 libyaml-0-2 liblua5.1-0 libnss3 && \
     rm -rf /var/lib/apt/lists/*
 RUN suricata -V
