@@ -11,7 +11,7 @@ RUN apt-get update && \
     build-essential autoconf automake libtool libpcap-dev libnet1-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libcap-ng-dev libcap-ng0 \
     make libmagic-dev libjansson-dev libjansson4 pkg-config \
-    python-yaml liblua5.1-0-dev libnss3-dev
+    python-yaml liblua5.1-0-dev libnss3-dev liblz4-dev
 
 RUN ./configure --enable-rust --enable-lua --prefix=/target
 RUN make -j16
