@@ -1,6 +1,6 @@
 FROM rust:stretch AS builder
 
-ARG VERSION=4.1.2
+ARG VERSION=4.1.3
 WORKDIR /src
 RUN wget -q https://www.openinfosecfoundation.org/download/suricata-${VERSION}.tar.gz
 RUN tar xf suricata-${VERSION}.tar.gz
